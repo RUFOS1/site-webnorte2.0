@@ -23,8 +23,9 @@ document.addEventListener("DOMContentLoaded", function() {
             popupText: "<div style='font-size: 16px;'><b>Nova União - RO</b><br><a href='https://www.google.com/maps/place/WEB+NORTE+TELECOM/@-10.9156979,-62.5564065,15z/data=!4m2!3m1!1s0x0:0xaad43629adfdc36' target='_blank'>Ver no Google Maps</a></div>"
         },
         { 
-            coords: [-10.426016605975802, -62.12761888053243], 
-            popupText: "<div style='font-size: 16px;'><b>Vale do Paraíso - RO</b><br><a href='https://www.google.com/maps/place/Web+Norte+Telecom/@-10.4262191,-62.1277018,19.44z/data=!4m14!1m7!3m6!1s0x93c944b20d2fb259:0xaad43629adfdc36!2sWEB+NORTE+TELECOM!8m2!3d-10.9156979!4d-62.5564065!16s%2Fg%2F11h0xnqvn!3m5!1s0x93cbcbaddd219cfd:0xa89987415bfd7daa!8m2!3d-10.4260346!4d-62.12771!16s%2Fg%2F11m8_kg1m3?entry=ttu' target='_blank'>Ver no Google Maps</a></div>"
+            coords: [-10.4287243, -62.1300659], 
+            
+            popupText: "<div style='font-size: 16px;'><b>Vale do Paraíso - RO</b><br><a href='https://www.google.com/maps/search/Avenida%20Paran%C3%A1%2C%204362/@-10.4287242889404,-62.1300659179688,17z' target='_blank'>Ver no Google Maps</a></div>"
         },
         { 
             coords: [-10.51229821894904, -62.000048249304605],

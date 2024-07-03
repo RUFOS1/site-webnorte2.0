@@ -3,6 +3,7 @@
     color: #005AAA;
     background-color: #fff;
     margin: 0;
+    width: 100%;
     
    
 }
@@ -13,4 +14,6 @@
     font-size: 40px;  
     font-weight: 800;
     letter-spacing: -1px;
+    width: 100%;
 }
+
