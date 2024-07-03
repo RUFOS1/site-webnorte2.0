@@ -1,0 +1,16 @@
+.title-map{
+    text-align: center;
+    color: #005AAA;
+    background-color: #fff;
+    margin: 0;
+    
+   
+}
+
+.title-map h1{
+    margin: 0;
+    padding: 2rem;
+    font-size: 40px;  
+    font-weight: 800;
+    letter-spacing: -1px;
+}

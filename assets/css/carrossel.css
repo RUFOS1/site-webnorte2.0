@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  z-index: 1; /* Ajustando o z-index para garantir que os botões fiquem sobrepostos */
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.div-dots-slide {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15px; /* Ajustando a posição dos dots para o fundo */
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #EE6E2F;
+}
+
+/* Fading animation */
+.fade {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards; /* Mantém o estado final da animação */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Media queries para imagens específicas em dispositivos menores */
+@media screen and (max-width: 1024px) {
+  .mySlides {
+    display: block; /* Mostra as imagens */
+  }
+  .slideshow-container {
+    max-width: 100%; /* Ajusta a largura máxima para ocupar a largura da tela */
+  }
+  .mySlides img {
+    width: 100%; /* Garante que as imagens ocupem toda a largura do container */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+  .slideshow-container .mySlides:nth-child(1) img {
+    content: url("/assets/src/slide4mobile.webp");
+  }
+  .slideshow-container .mySlides:nth-child(2) img {
+    content: url("/assets/src/slide3mobile.webp");
+  }
+  .slideshow-container .mySlides:nth-child(3) img {
+    content: url("/assets/src/slide2mobile.webp");
+  }
+  .slideshow-container .mySlides:nth-child(4) img {
+    content: url("/assets/src/slide1mobile.webp");
+  }
+}

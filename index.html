@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+          </style>
+        
+        <title>Webnorte Telecom</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/headers.css">
+        <link rel="stylesheet" href="assets/css/carrossel.css">
+        <link rel="stylesheet" href="assets/css/waves.css">
+        <link rel="stylesheet" href="assets/css/cards-planos.css">
+        <link rel="stylesheet" href="assets/css/footer.css">
+        <link rel="stylesheet" href="assets/css/map.css">
+
+        <link rel="icon" href="/assets/src/LOGO-300x300.webp">
+    </head>
+    <body>
+
+       
+<!--CABEÇALHO 1-->
+        <header class="header-2">
+            <div id="div-logo-principal">
+                <img id="logo-principal" src="assets/src/logo.webp" alt>
+            </div>
+
+            <div id="div-buttons-principais">
+                <!-- <a href="#">Sobre</a> -->
+                <a id="link-hidden" href="#planos">Planos</a>
+                <a id="link-hidden" href="#contato">Contatos</a>
+                <a id="link-hidden" href="#duvidas">Dúvidas</a>
+                <a id="link-hidden" href="#localização">Localização</a>
+
+                <a href="https://central.webnorte.com.br/ " target="_blank"  id="area-cliente"><i class="fa fa-user"
+                        aria-hidden="true"></i>Área do Cliente</a>
+            </div>
+        </header>
+<!----------------------------------------------------------------------------------------------->
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+      <img src="assets/src/slide4.webp" style="width:100%">
+      
+    </div>
+  
+    <div class="mySlides fade">
+      <img src="assets/src/slide3.webp" style="width:100%">
+     
+    </div>
+  
+    <div class="mySlides fade">
+      <img src="assets/src/slide2.webp" style="width:100%">
+      
+    </div>
+
+    <div class="mySlides fade">
+        <img src="assets/src/slide1.webp" style="width:100%">
+      </div>
+  
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <!-- The dots/circles -->
+  <div class="div-dots-slide">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+<!----------------------------------------------------------------------------------------------->
+
+<!-- EFEITO DE ONDAS  -->
+<div class="waves2">
+    <svg class="waves-bottom" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-4 88-4s 58 4 88 4 58-4 88-4 58 4 88 4 v44h-352z"></path>
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(236, 236, 236, 0.3)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="4" fill="rgba(236, 236, 236, 1)"></use>
+        </g>
+    </svg>
+</div>
+
+     
+<!------------------- ---------------------------------------------------------------------------->
+
+<!-- <div class="sobre-nos">
+  <h1>Sobre Nós</h1>
+  <p></p>
+
+</div> -->
+
+<!-----------AREA DA LOCALIZAÇÃO E DOS CARDS DE PLANOS----------------->
+<div class="container-selector-title">
+  <h3 style="display: none;">NOSSOS PLANOS EM: </h3>
+  <div class="selector-city-plans">
+      <button id="btn-nvu" class="button_city" onclick="mudarCidade('nvu')">NOVA UNIÃO</button>
+      <button id="btn-vp" class="button_city" onclick="mudarCidade('vp')">VALE DO PARAÍSO</button>
+  </div>
+
+  <div class="title-city">
+      <h1 id="title-nvu">NOVA UNIÃO-RO</h1>
+      <h1 id="title-vp">VALE DO PARAISO-RO</h1>
+  </div>
+</div>
+
+<div class="container-geral-cards">
+  <!--  CARDS PLANOS FIBRA CIDADE-->
+
+  <div class="container-fibra-city">
+      <h2 id="planos"></h2>
+      <h2 id="title-fibra-optica-city" style="display: none;">FIBRA ÓPTICA - ZONA URBANA</h2>
+      <div class="container-cards-fibra-city">
+          <div id="card-city1" class="card-city">
+              <div class="part1-card1">
+                  <h2 id="titulo-plano-cards1">PLANO MEGA</h2>
+              </div>
+              <div class="part2-card">
+                  <h1 id="mega-velocity-city1">250</h1>                 
+                  <h4 id="mega-subvelocity-city1"><i class="fa fa-wifi" aria-hidden="true"></i>&nbsp;Wifi 5</h4>
+                  <hr>
+                  <h4><i class="fa fa-rocket" aria-hidden="true"></i> Fibra óptica</h4>
+                  <hr>
+                  <h4><i class="fa fa-wrench" aria-hidden="true"></i> Instalação <span>GRÁTIS</span> </h4>
+                  <hr>
+                  <h4 id="h4-router"><i class="material-icons">&#xe328;</i>&nbsp;Roteador&nbsp;<span>GRÁTIS</span></h4>
+                  <hr>
+                  <h4><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Suporte Premium</h4>
+                  <hr style="opacity: 0;" >
+                  <h4 style="opacity: 0;">&nbsp;</h4>
+                  <hr style="opacity: 0;">
+                  <h4 style="opacity: 0;">&nbsp;</h4>
+                  
+                  
+              </div>
+              <div class="part3-card">
+                  <div id="botoes-card">
+                      <!-- <a id="link-solicitar" href="">SOLICITAR LIGAÇÃO</a> -->
+                      <a id="link-card1" target="_blank" class="link-falarcity" href="">FALAR COM ATENDENTE</a>  
+                  </div> 
+              </div> 
+          </div>
+          <div id="card-city2" class="card-city">
+              <div class="part1-card2">
+                  <h2 id="titulo-plano-cards2">PLANO AVANÇADO</h2>
+              </div>
+              <div class="part2-card">
+                  <h1 id="mega-velocity-city2">450</h1>
+                  <h4 id="mega-subvelocity-city2"><i class="fa fa-wifi" aria-hidden="true"></i>&nbsp;Wifi 5</h4>
+                  <hr>
+                  <h4><i class="fa fa-rocket" aria-hidden="true"></i> Fibra óptica</h4>
+                  <hr>
+                  <h4><i class="fa fa-wrench" aria-hidden="true"></i> Instalação <span>GRÁTIS</span> </h4>
+                  <hr>
+                  <h4 id="h4-router"><i class="material-icons">&#xe328;</i>&nbsp;Roteador&nbsp;<span>GRÁTIS</span></h4>
+                  <hr>
+                  <h4><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Suporte Premium</h4>
+                  <hr>
+                  <h4 id="h4-tv2"><i class="fa fa-television" aria-hidden="true"></i>&nbsp;TV Start</h4>
+                  <h4 style="opacity: 0;">&nbsp;</h4>
+                  <hr style="opacity: 0;">
+              </div>
+              <div class="part3-card">
+                  <div id="botoes-card">
+                      <!-- <a id="link-solicitar" href="">SOLICITAR LIGAÇÃO</a> -->
+                      <a id="link-card2" target="_blank" class="link-falarcity" href="">FALAR COM ATENDENTE</a>  
+                  </div> 
+              </div>                           
+          </div>
+          <div id="card-city3" class="card-city">
+              <div class="part1-card3">
+                  <h2 id="titulo-plano-cards3">PLANO PRO</h2>
+              </div>
+              <div class="part2-card">
+                  <h1 id="mega-velocity-city3">650</h1>
+                  <h4 id="mega-subvelocity-city3"><i class="fa fa-wifi" aria-hidden="true"></i>&nbsp;Wifi 5</h4>
+                  <hr>
+                  <h4><i class="fa fa-rocket" aria-hidden="true"></i> Fibra óptica</h4>
+                  <hr>
+                  <h4><i class="fa fa-wrench" aria-hidden="true"></i> Instalação <span>GRÁTIS</span> </h4>
+                  <hr>
+                  <h4 id="h4-router"><i class="material-icons">&#xe328;</i>&nbsp;Roteador&nbsp;<span>GRÁTIS</span></h4>
+                  <hr>
+                  <h4><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Suporte Premium</h4>
+                  <hr>                  
+                  <h4 id="h4-tv3"><i class="fa fa-television" aria-hidden="true"></i>&nbsp;TV Premium ou Wifi MESH</h4>
+                  <h4 style="opacity: 0;"></i>&nbsp;</h4>
+                  <hr style="opacity: 0;">
+              </div>
+              <div class="part3-card">
+                  <div id="botoes-card">
+                      <!-- <a id="link-solicitar" href="">SOLICITAR LIGAÇÃO</a> -->
+                      <a id="link-card3" target="_blank" class="link-falarcity" href="">FALAR COM ATENDENTE</a>  
+                  </div> 
+              </div>                          
+          </div>
+
+          <div id="card-city4" class="card-city">
+              <div class="part1-card4">
+                  <h2 id="titulo-plano-cards4">WEB FIBRA 1000</h2>
+              </div>
+              <div class="part2-card">
+                  <h1 id="mega-velocity-city4">1000MB</h1>
+                  <h4 id="mega-subvelocity-city2"><i class="fa fa-wifi" aria-hidden="true"></i>&nbsp;Wifi 6</h4>
+                  <hr>
+                  <h4><i class="fa fa-rocket" aria-hidden="true"></i> Fibra óptica</h4>
+                  <hr>
+                  <h4><i class="fa fa-wrench" aria-hidden="true"></i> Instalação <span>GRÁTIS</span> </h4>
+                  <hr>
+                  <h4 id="h4-router"><i class="material-icons">&#xe328;</i>&nbsp;Roteador&nbsp;<span>GRÁTIS</span></h4>
+                  <hr>
+                  <h4><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Suporte Premium</h4>
+                  <hr>
+                  <h4 id="h4-tv4"><i class="fa fa-television" aria-hidden="true"></i>&nbsp;TV Premium </h4>
+                  <hr>
+                  <h4 id="h4-router" ><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Wifi MESH</h4>
+              </div>
+              <div class="part3-card">
+                  <div id="botoes-card">
+                      <!-- <a id="link-solicitar" href="">SOLICITAR LIGAÇÃO</a> -->
+                      <a id="link-card4" target="_blank" class="link-falarcity" href="">FALAR COM ATENDENTE</a>  
+                  </div> 
+              </div>                                                
+          </div>
+      </div> 
+  </div> 
+
+
+            <!--CARDS PLANOS FIBRA RURAL-->
+<div class="container-fibra-rural">
+  <button id="btn-exibir-planos" class="btn-exibir-planos-rural">
+      <h3 id="title-fibra-optica-zona-rural">FIBRA ÓPTICA - ZONA RURAL <i class="fa fa-plus-square" id="icon-eye" aria-hidden="true"></i></h3>
+  </button>
+
+  <div class="container-cards-fibra-rural">
+
+
+        <div id="card-rural1" class="card-rural">
+          <div class="part1-cardrural1">
+              <h2 id="titulo-plano-cardsrural1">WEB FIBRA </h2>
+          </div>
+          <div class="part2-cardrural">
+              <h1 id="mega-velocity-rural1">100MB</h1>
+              <h4><i class="fa fa-wifi" aria-hidden="true"></i>&nbsp;Wifi 5</h4>
+              <hr>
+              <h4><i class="fa fa-rocket" aria-hidden="true"></i> Fibra óptica</h4>           
+              <hr>
+              <h4 id="h4-insta-rural1"><i class="fa fa-wrench" aria-hidden="true"></i> Instalação <span>GRÁTIS</span> </h4>
+              <hr id="hr-instal1">
+              <h4 id="h4-router"><i class="material-icons">&#xe328;</i>&nbsp;Roteador&nbsp;<span>GRÁTIS</span></h4>
+              <hr>
+              <h4><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Suporte Premium</h4>
+              <hr style="opacity: 0;">
+              <h4 style="opacity: 0;">&nbsp;</h4>
+              
+          </div>
+          <div class="part3-cardrural">
+              <div id="botoes-card">
+                  <!-- <a id="link-solicitar" href="">SOLICITAR LIGAÇÃO</a> -->
+                  <a id="link-card5" target="_blank" class="link-falar-rural" href="">FALAR COM ATENDENTE</a>  
+              </div> 
+          </div>                                                
+      </div>
+
+      <div id="card-rural2" class="card-rural">
+        <div class="part1-cardrural2">
+            <h2 id="titulo-plano-cardsrural2">WEB FIBRA </h2>
+        </div>
+        <div class="part2-cardrural">
+            <h1 id="mega-velocity-rural2">100MB</h1>
+            <h4><i class="fa fa-wifi" aria-hidden="true"></i>&nbsp;Wifi 5</h4>
+            <hr>
+            <h4><i class="fa fa-rocket" aria-hidden="true"></i> Fibra óptica</h4>
+            <hr>
+            <h4 id="h4-insta-rural2"><i class="fa fa-wrench" aria-hidden="true"></i> Instalação <span>GRÁTIS</span> </h4>
+            <hr id="hr-instal2">
+            <h4 id="h4-router"><i class="material-icons">&#xe328;</i>&nbsp;Roteador&nbsp;<span>GRÁTIS</span></h4>
+            <hr>
+            <h4><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Suporte Premium</h4>
+            <hr id="hr-tvrural2" style="opacity: 0;">
+            <h4 id="h4-tvrural2" style="opacity: 0;"><i class="fa fa-television" aria-hidden="true"></i>&nbsp;TV Start </h4>
+            
+        </div>
+        <div class="part3-cardrural">
+            <div id="botoes-card">
+                <!-- <a id="link-solicitar" href="">SOLICITAR LIGAÇÃO</a> -->
+                <a id="link-card6" target="_blank" class="link-falar-rural" href="">FALAR COM ATENDENTE</a>  
+            </div> 
+        </div>                                                
+    </div>
+
+    <div id="card-rural3" class="card-rural">
+      <div class="part1-cardrural3">
+          <h2 id="titulo-plano-cardsrural3">WEB FIBRA </h2>
+      </div>
+      <div class="part2-cardrural">
+          <h1 id="mega-velocity-rural3">100MB</h1>
+          <h4><i class="fa fa-wifi" aria-hidden="true"></i>&nbsp;Wifi 5</h4>
+          <hr>
+          <h4><i class="fa fa-rocket" aria-hidden="true"></i> Fibra óptica</h4>
+          <hr>
+          <h4 id="h4-insta-rural3"><i class="fa fa-wrench" aria-hidden="true"></i> Instalação <span>GRÁTIS</span> </h4>
+          <hr id="hr-instal3">
+          <h4 id="h4-router"><i class="material-icons">&#xe328;</i>&nbsp;Roteador&nbsp;<span>GRÁTIS</span></h4>
+          <hr>         
+          <h4><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Suporte Premium</h4>
+          <hr>
+          <h4 id="h4-tvrural3"><i class="fa fa-television" aria-hidden="true"></i>&nbsp;TV Premium ou WIFI MESH </h4>
+            
+          
+      </div>
+      <div class="part3-cardrural">
+          <div id="botoes-card">
+              <!-- <a id="link-solicitar" href="">SOLICITAR LIGAÇÃO</a> -->
+              <a id="link-card7" target="_blank" class="link-falar-rural" href="">FALAR COM ATENDENTE</a>  
+          </div> 
+      </div>                                                
+  </div>
+
+      
+      
+  </div>
+</div>
+
+        </div> 
+<!----------------------------------------------------------------------------------------------->
+
+<!-- EFEITO DE ONDAS -->
+<div class="waves">
+    <svg class="waves-bottom" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-4 88-4s 58 4 88 4 58-4 88-4 58 4 88 4 v44h-352z"></path>
+        </defs>
+        <g class="parallax">
+            
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0, 90, 170, 0.3)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="4" fill="rgba(0, 90, 170, 1)"></use>
+        </g>
+    </svg>
+</div> 
+
+     
+<!----------------------------------------------------------------------------------------------->
+
+<!-- DIV-YPLAYTV -->
+<div class="div-yplaytv">
+        <div class="coluna">
+            <video class="video-yplaytv" autoplay muted disablepictureinpicture>
+                <source id="sc-video" loading="lazy" src="/assets/src/tv-logo-yplay.mp4">
+            </video>
+        </div>
+
+    <div class="coluna">
+      <div class="row-yplaytv-logo">
+        <div>
+          <img loading="lazy" src="/assets/src/logo-webnortv.webp" alt="logo-WebnorTV">
+        </div>
+      </div>
+     
+      <div class="row-yplaytv">
+        <h3>Com o WebnorTV, você terá acesso a uma ampla variedade de canais ao vivo, além de uma extensa seleção de
+          séries e filmes para desfrutar no conforto do seu sofá.</h3>
+      </div>
+      <div class="row-yplaytv">
+        <span id="span-amarelo">Plano Lite </span>
+        <p>Ao assinar um dos nossos planos Lite, você adiciona o WebnorTV, que
+          oferece mais de 50 canais, filmes e séries emocionantes.</p>
+      </div>
+      <div class="row-yplaytv">
+        <span id="span-amarelo">Combo PLUS | WebnorTV Incluso</span>
+        <p>Com o Combo PLUS, o YplayTV já está incluso, proporcionando a você acesso às melhores programações da
+          televisão, incluindo programas como FishTV, BANDS Sports, além dos melhores filmes e séries para o seu total
+          entretenimento.</p>
+      </div>
+    </div>
+
+  </div> 
+
+
+
+
+  <div class="info-melhor">
+    
+    <h1>POR QUE A WEBNORTE É A MELHOR OPÇÃO?</h1>
+    <div class="container-cards-infos">
+      <div class="card_infos">
+        <i class='fas'>&#xf4be;</i>
+        <h3>Melhor Atendimento</h4>
+        <span>Aqui você encontra todo o suporte necessário para utilizar internet banda larga na sua residência ou empresa.</span>
+      </div>
+      <div class="card_infos">
+        <i class='fas'>&#xf796;</i>
+        <h3>Internet Fibra</h4>
+        <span>A Fibra Óptica possibilita acesso rápido a conteúdos e serviços diretamente na rede de alta velocidade.</span>
+      </div>
+      <div class="card_infos">
+        <i class="fa">&#xf2b5;</i>
+        <h3>Planos Empresariais</h4>
+        <span>Contrate soluções tecnológicas em conexões para internet para a sua empresa.</span>
+      </div>
+      <div class="card_infos">
+        <i class="fa">&#xf2b5;</i>
+        <h3>Internet Eventos</h4>
+        <span>Oferecemos soluções de internet de alto desempenho para congressos, shows, workshops, feiras e eventos diversos.</span>
+      </i></div>
+    </div>
+    
+  </div>
+  
+
+
+  <!-- div responsavel pelo mapa -->
+  <div class="title-map">
+    <h1 id="localização">ESTAMOS LOCALIZADOS AQUI</h1>
+    <div id="mapid" style="height: 400px;"></div>
+  </div>
+  
+  
+
+<div class="container-duvidas-frequentes">
+  <h1 id="duvidas">Dúvidas Frequentes</h1>
+  <ul class="lista-duvidas">
+
+    <li id="duvida-1">Internet por fibra ótica: o que é e como funciona?</li>
+    <span id="resposta-1" class="resposta ">A fibra óptica é uma forma de conexão à Internet que usa luz para transmitir dados. 
+      Imagine que os dados são como mensagens que viajam dentro de fios de vidro muito finos. 
+      Isso permite que a Internet por fibra óptica seja muito rápida!
+       Ela é cerca de 20 vezes mais veloz do que a conexão comum por cabo, atingindo velocidades de até 1 Gbps. 
+       Em resumo, a fibra óptica é como um caminho de luz que leva a Internet até a sua casa ou empresa.</span></li>
+      <hr class="linha-horizontal">
+
+    <li id="duvida-2">Quais são os benefícios e vantagens da internet WebNorte?</li>
+    <span id="resposta-2" class="resposta ">A alta velocidade é uma das principais características e vantagens da internet fibra óptica, ocorre com eficiência e qualidade. Planos de alta velocidade com preços acessíveis, bem como maior segurança e estabilidade na transmissão das informações, são as principais razões para o crescimento da procura e do investimento nesse tipo de tecnologia.</span>
+    <hr class="linha-horizontal">
+
+    <li id="duvida-3">Como contratar a internet residencial Webnorte ?</li>
+    <span id="resposta-3" class="resposta ">Use nossa linha direta com o cliente.<br><a id="tel-duvidas" href="https://api.whatsapp.com/send?phone=5569981274593&text=Ola" target="_blank">&nbsp;Nova União <b>(69) 98127-4593</b></a><br> OU <br><a id="tel-duvidas" href="https://api.whatsapp.com/send?phone=5569984333306&text=Ola" target="_blank">&nbsp;Vale do Paraíso <b>(69) 98433-3306</b></a></span>
+    <hr class="linha-horizontal">
+
+    <li id="duvida-4">Velocidade de internet: qual é o melhor plano pra minha residência?</li>
+    <span id="resposta-4" class="resposta ">Antes de pesquisar um plano de internet, é preciso entender o seu perfil de consumo para saber quais as características ideais que o pacote deve ter para te atender na medida certa.
+      Quantas pessoas irão usar a internet?
+      Quantos dias da semana você acessa?    
+      Utiliza Streams, Jogos, Downloads com frequência? 
+      etc.</span>
+    <hr class="linha-horizontal">
+
+    <li id="duvida-5">Cobertura e Disponibilidade: A internet banda larga da WebNorte chega no meu CEP?</li>
+    <span id="resposta-5" class="resposta ">Consulta sujeita a localização de caixas de atendimento.<br><a id="tel-duvidas" href="https://api.whatsapp.com/send?phone=5569981274593&text=Ola" target="_blank">&nbsp;Nova União <b>(69) 98127-4593</b></a> <br> OU <br><a id="tel-duvidas" href="https://api.whatsapp.com/send?phone=5569984333306&text=Ola" target="_blank">&nbsp;Vale do Paraíso <b>(69) 98433-3306</b></a></span>
+    <hr class="linha-horizontal">
+  </ul>
+</div>
+
+
+
+<footer class="footer-2">
+  
+  <div class="div-telefones">
+      <a id="tel-rodape" href="https://api.whatsapp.com/send?phone=5569981274593&text=Ola" target="_blank"><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp;Nova União <b>(69) 98127-4593</b></a>
+      <a id="tel-rodape" href="https://api.whatsapp.com/send?phone=5569984333306&text=Ola" target="_blank"><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp;Vale do Paraíso <b>(69) 98433-3306</b></a>
+  </div>
+  <nav class="btn_social">
+    <h3 id="contato"></h3>
+    <ul>
+      <li><a href="https://www.facebook.com/webnortetelecom"
+          target="_blank" title="facebook"><i
+          class="fa-brands fa-facebook"></i></a></li>
+
+      <li><a href="https://www.instagram.com/webnortetelecom/"
+            target="_blank" title="instagram"><i
+            class="fa-brands fa-instagram"></i></a></li>
+
+      <li><a href="https://www.linkedin.com/company/web-norte-telecom/mycompany/"
+            target="_blank" title="linkedin"><i
+            class="fa-brands fa-linkedin"></i></a></li>
+        
+                     
+    </ul>
+ </nav>
+
+  
+
+</footer>
+
+
+
+ 
+
+
+
+
+  <footer class="footer-1">
+    <!--LOGO DO RODAPE-->
+    <div id="div-dados-empresa">
+      <div id="logo-rodape">
+        <img loading="lazy" src="assets/src/logo-rodape.webp" alt="logo-webnorte-rodape">
+        <p>© 2023 - Web Norte Telecom - Todos os direitos reservados.</p>
+      </div>
+
+      <div id="div-2colunas-rodape-dados-empresas">
+        <div class="div-webnortecolunas">
+          <div>
+            <i class="fa-solid fa-store" style="color: #ffffff;"></i>
+            <span>WEB NORTE TELECOM LTDA</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
+            <span>Santos Dumont, 1123, Centro, Nova União - RO, 76924-000</span><br>
+          </div>
+          <div>
+            <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i>
+            <span>(69) 98127-4593</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
+            <span>contato@webnorte.com.br</span>
+          </div>
+        </div>
+
+        <div class="linha-vertical">
+        </div>
+
+        <div class="div-webnortecolunas">
+          <div>
+            <i class="fa-solid fa-store" style="color: #ffffff;"></i>
+            <span>WEB NORTE SERVICOS DE INTERNET LTDA</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
+            <span>Jequitibá, 4261 - St. 03, Vale do Paraíso - RO, 76923-000</span>
+          </div>
+          <div>
+            <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i>
+            <span>(69) 98433-3306</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
+            <span>comercial@webnorte.inf.br</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="desenvolvido-direitos">
+        <div>
+          <a id="dev-oculto" href="https://www.linkedin.com/in/ademilson-carlos-0a3b3018a/" target="_blank">Desenvolvido
+            por <span>Ademilson Carlos</span></a>
+        </div>
+        
+      </div>
+    </div>
+
+
+    
+  </footer>
+
+</body>
+    <script src="https://kit.fontawesome.com/42372e938d.js"crossorigin="anonymous"></script>
+
+    <script src="assets/scripts/alter_cards.js"></script>
+    <script src="assets/scripts/yplaytv.js"></script>
+    <script src="assets/scripts/carousel.js"></script>
+    <script src="assets/scripts/map.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/assets/scripts/duvidas.js"></script>
+</html>
