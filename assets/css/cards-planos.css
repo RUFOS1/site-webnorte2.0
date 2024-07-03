@@ -439,6 +439,11 @@
     overflow: auto;
 }
 
+.link-falarcity:visited{
+    text-decoration: none;
+    color: #fff;
+}
+
 .link-falarcity:hover{
     transform: scale(1.04);
     color: #fff;
@@ -613,6 +618,11 @@
     color: #fff;
     font-weight: 1em;
     font-size: 1.3em; 
+}
+
+.link-falar-rural:visited{
+    text-decoration: none;
+    color: #fff;
 }
 
 .link-falar-rural:hover{
